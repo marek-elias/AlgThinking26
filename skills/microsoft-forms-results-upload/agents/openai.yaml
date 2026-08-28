@@ -1,0 +1,4 @@
+interface:
+  display_name: "Microsoft Forms Results Upload"
+  short_description: "Upload task result files to Microsoft Forms"
+  default_prompt: "Use $microsoft-forms-results-upload to upload this task's results to its Microsoft Form."

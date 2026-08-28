@@ -31,6 +31,34 @@ The task requirements are:
 * Do not place generated data outside the task’s `data/` directory.
 * Do not place generated output outside the task’s `results/` directory.
 
+If a task’s results should be uploaded to a Microsoft Form, place the form URL in:
+
+```text
+LNN-task_name/microsoft_form_url.txt
+```
+
+The first non-empty, non-comment line in that file is the task’s upload URL.
+
+## Repository skills
+
+Reusable skills shared with this repository are stored in:
+
+```text
+skills/
+```
+
+To use a repository skill in Codex, copy or symlink the skill directory into the
+local Codex skills directory, for example:
+
+```bash
+mkdir -p ~/.codex/skills
+ln -s "$(pwd)/skills/microsoft-forms-results-upload" ~/.codex/skills/microsoft-forms-results-upload
+```
+
+Use the `microsoft-forms-results-upload` skill when uploading files from a task’s
+`results/` directory to the task’s configured Microsoft Form. It uploads files
+separately, not as a zip archive, unless the student explicitly asks otherwise.
+
 ## Student nickname
 
 Every task’s `main.py` must contain the following constant near the beginning of the file, after imports and before the program logic:
