@@ -17,6 +17,7 @@ Each task directory must have this structure:
 ```text
 LNN-task_name/
 ├── main.py
+├── data/
 ├── results/
 └── additional files, if needed
 ```
@@ -24,8 +25,10 @@ LNN-task_name/
 The task requirements are:
 
 * `main.py` contains the main executable solution.
+* `data/` contains generated or reusable input data used by the task code.
 * `results/` contains every generated plot, text file, table, report, or other output.
-* Additional source, configuration, or data files may be placed inside the task directory when needed.
+* Additional source or configuration files may be placed inside the task directory when needed.
+* Do not place generated data outside the task’s `data/` directory.
 * Do not place generated output outside the task’s `results/` directory.
 
 ## Student nickname
@@ -66,22 +69,22 @@ Do not change an existing non-empty nickname unless the student explicitly asks 
 
 All generated output must be written into the current task’s `results/` directory.
 
-Every generated result filename must contain the student nickname.
+Every generated result filename must begin with the student nickname.
 
 Examples:
 
 ```text
-results/plot_<nickname>.png
-results/results_<nickname>.txt
-results/table_<nickname>.csv
-results/report_<nickname>.pdf
+results/<nickname>_plot.png
+results/<nickname>_results.txt
+results/<nickname>_table.csv
+results/<nickname>_report.pdf
 ```
 
 For example, if the nickname is `blue_fox`, valid filenames include:
 
 ```text
-results/plot_blue_fox.png
-results/results_blue_fox.txt
+results/blue_fox_plot.png
+results/blue_fox_results.txt
 ```
 
 Text-based result files must also contain the following line:
@@ -104,15 +107,17 @@ from pathlib import Path
 STUDENT_NICKNAME = "chosen_nickname"
 
 TASK_DIR = Path(__file__).resolve().parent
+DATA_DIR = TASK_DIR / "data"
 RESULTS_DIR = TASK_DIR / "results"
+DATA_DIR.mkdir(parents=True, exist_ok=True)
 RESULTS_DIR.mkdir(parents=True, exist_ok=True)
 ```
 
 Construct result filenames using `STUDENT_NICKNAME`:
 
 ```python
-text_output = RESULTS_DIR / f"results_{STUDENT_NICKNAME}.txt"
-plot_output = RESULTS_DIR / f"plot_{STUDENT_NICKNAME}.png"
+text_output = RESULTS_DIR / f"{STUDENT_NICKNAME}_results.txt"
+plot_output = RESULTS_DIR / f"{STUDENT_NICKNAME}_plot.png"
 ```
 
 Example for writing a text result:
@@ -129,7 +134,7 @@ Example for saving a Matplotlib plot:
 
 ```python
 figure.savefig(
-    RESULTS_DIR / f"plot_{STUDENT_NICKNAME}.png",
+    RESULTS_DIR / f"{STUDENT_NICKNAME}_plot.png",
     dpi=150,
     bbox_inches="tight",
 )
@@ -143,14 +148,15 @@ When the student asks to work on a particular task:
 2. Work only inside that task directory unless the student explicitly requests a shared repository change.
 3. Ask for the nickname when it cannot be determined using the rules above.
 4. Ensure that `main.py` contains the hard-coded `STUDENT_NICKNAME`.
-5. Preserve the required `main.py` and `results/` structure.
+5. Preserve the required `main.py`, `data/`, and `results/` structure.
 6. Add extra files only when they are useful for the solution.
 7. Keep the code readable and appropriate for a classroom submission.
 8. Run `main.py` after making changes.
 9. Fix errors encountered while running the program.
-10. Verify that all expected output files were created inside the task’s `results/` directory.
-11. Verify that every output filename contains the correct nickname.
-12. Verify that text-based results contain the nickname inside the file.
+10. Verify that generated data files were created inside the task’s `data/` directory.
+11. Verify that all expected output files were created inside the task’s `results/` directory.
+12. Verify that every output filename begins with the correct nickname.
+13. Verify that text-based results contain the nickname inside the file.
 
 ## Completion response
 
@@ -161,4 +167,3 @@ When the task is complete, report:
 * The generated result files.
 * The command used to run the solution.
 * Whether the program completed successfully.
-
