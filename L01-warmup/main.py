@@ -13,7 +13,7 @@ from init_data import (
 )
 
 
-STUDENT_NICKNAME = "marek"
+STUDENT_NICKNAME = ""
 
 TASK_DIR = Path(__file__).resolve().parent
 RESULTS_DIR = TASK_DIR / "results"
