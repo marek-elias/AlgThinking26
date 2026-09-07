@@ -59,6 +59,17 @@ Use the `microsoft-forms-results-upload` skill when uploading files from a task�
 `results/` directory to the task’s configured Microsoft Form. It uploads files
 separately, not as a zip archive, unless the student explicitly asks otherwise.
 
+## Installing software and Python packages
+
+Before installing any software or Python package:
+
+1. Use an authentic, verifiable source, preferably the software publisher's
+   official repository or the package's official package-index page.
+2. Tell the user exactly what will be installed and identify its source.
+3. Obtain the user's explicit confirmation before running the installation.
+
+Do not install software or Python packages from an unverified source.
+
 ## Student nickname
 
 Every task’s `main.py` must contain the following constant near the beginning of the file, after imports and before the program logic:
