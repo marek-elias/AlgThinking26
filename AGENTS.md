@@ -188,6 +188,8 @@ When the student asks to work on a particular task:
 
 ## Completion response
 
+Once the code is ready, tell the user where the code is located and how to run it.
+
 When the task is complete, report:
 
 * The task directory that was used.
