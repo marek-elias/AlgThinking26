@@ -196,6 +196,7 @@ When the student asks to work on a particular task:
 11. Verify that all expected output files were created inside the task’s `results/` directory.
 12. Verify that every output filename begins with the correct nickname.
 13. Verify that text-based results contain the nickname inside the file.
+14. Tell the user how to run the code to generate the results.
 
 ## Completion response
 
