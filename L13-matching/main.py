@@ -2,6 +2,10 @@
 
 from pathlib import Path
 
+import networkx as nx
+import pulp
+import scipy
+
 
 TASK_DIR = Path(__file__).resolve().parent
 DATA_DIR = TASK_DIR / "data"
