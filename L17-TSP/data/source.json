@@ -1,0 +1,24 @@
+{
+  "repository": "https://github.com/eleonoravercesi/tour_from_neural_predictions",
+  "repository_commit": "72d2fd2a6fcfd971e6839dc6d2d18ef413324821",
+  "experiment_script": "https://github.com/eleonoravercesi/tour_from_neural_predictions/blob/72d2fd2a6fcfd971e6839dc6d2d18ef413324821/smoothness_with_epsilon_alps_greedy.py",
+  "experiment_evidence": "The synthetic-prediction smoothness experiment sets n=500, n_instances=128 and benchmark=uniform_benchmark; loads data/tsp_uniform_benchmark/500_0000.pkl at s=0; and perturbs edges of its stored optimal tour.",
+  "dataset_record": "https://doi.org/10.5281/zenodo.20283463",
+  "archive_url": "https://zenodo.org/records/20283463/files/ML4CO.zip",
+  "archive_member": "ML4CO/500_0000.pkl",
+  "download_date": "2026-11-17",
+  "original_sha256": "c190fbc271873661e58e33dfc5d7adfb5874a105a17b13a468f328bbf0322309",
+  "original_size_bytes": 54678341,
+  "dimension": 500,
+  "complete_graph_edges": 124750,
+  "optimal_tour_source": "Dataset node opt_tour ranks, checked against edge opt_tour and in_solution flags. Authors report Concorde optimal tours; no solver was run locally to independently prove optimality.",
+  "optimal_tour_length_original_weights": 16.41433493438761,
+  "tour_indexing": "500_0000.opt.tour uses TSPLIB 1-based IDs and implicit closure. JSON and pickle use 0-based IDs.",
+  "weight_convention": "Original weight attributes match unrounded Euclidean distances; maximum absolute difference over all edges recorded below. Coordinate JSON preserves these weights via Euclidean distance; TSPLIB EUC_2D integer rounding would change the instance.",
+  "max_euclidean_weight_difference": 2.220446049250313e-16,
+  "files": {
+    "500_0000.pkl": "Original downloaded NetworkX graph, with coordinates, edge weights, predictions and optimal tour.",
+    "500_0000.json": "Readable equivalent coordinate instance, usable without NetworkX or NumPy.",
+    "500_0000.opt.tour": "Optimal cycle extracted from the downloaded graph, in TSPLIB TOUR format."
+  }
+}
